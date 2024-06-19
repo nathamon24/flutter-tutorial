@@ -7,11 +7,12 @@ import 'package:meals/widgets/category_grid_item.dart';
 import '../models/category.dart';
 
 class CategoriesScreen extends StatelessWidget {
-  const CategoriesScreen({super.key, required this.onToggleFavorite});
+  const CategoriesScreen({super.key, required this.onToggleFavorite, required this.availablesMeals});
   final void Function(Meal meal) onToggleFavorite;
+  final List<Meal> availablesMeals;
 
   void _selectCategory(BuildContext context, Category category) {
-    final filterMeals = dummyMeals
+    final filterMeals = availablesMeals
         .where((meal) => meal.categories.contains(category.id))
         .toList();
 
@@ -29,7 +30,7 @@ class CategoriesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView(
-      padding: EdgeInsets.all(16),
+      padding: const EdgeInsets.all(16),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         childAspectRatio: 3 / 2,
