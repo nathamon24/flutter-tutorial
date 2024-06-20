@@ -132,13 +132,13 @@ class LoginScreen extends StatelessWidget {
                         width: double.infinity,
                         child: OutlinedButton.icon(
                           onPressed: () {
-                            // Your onPressed action here
+                       
                           },
                           icon: SizedBox(
-                            width: 24, // Adjust the width as needed
-                            height: 24, // Adjust the height as needed
+                            width: 24, 
+                            height: 24, 
                             child: Image.asset(
-                                'assets/logos/facebook_icon.png'), // Replace with your image path
+                                'assets/logos/facebook_icon.png'), 
                           ),
                           label: Text(
                             'Sign In with Facebook',
