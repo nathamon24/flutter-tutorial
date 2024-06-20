@@ -1,0 +1,13 @@
+flutter_native_splash:
+  color: "#03764D"
+  color_dark: "#272727"
+  image : assets/logos/cafepia_logo_shadow.png
+  image_dark : assets/logos/cafepia_logo_shadow.png
+
+  android_12:
+    color: "#03764D"
+    color_dark: "#272727"
+    image : assets/logos/cafepia_logo_shadow.png
+    image_dark : assets/logos/cafepia_logo_shadow.png
+  
+  web : false
