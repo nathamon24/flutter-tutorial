@@ -1,4 +1,5 @@
 import 'package:cafepia/common/styles/spaceing_styles.dart';
+import 'package:cafepia/features/authentication/screens/profile/profile.dart';
 import 'package:cafepia/utils/constants/colors.dart';
 import 'package:cafepia/utils/constants/sizes.dart';
 import 'package:cafepia/utils/constants/text_strings.dart';
@@ -8,6 +9,7 @@ import 'package:cafepia/utils/http/http_client.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -131,14 +133,37 @@ class LoginScreen extends StatelessWidget {
                       SizedBox(
                         width: double.infinity,
                         child: OutlinedButton.icon(
-                          onPressed: () {
-                       
+                          onPressed: () async {
+                            final LoginResult result =
+                                await FacebookAuth.instance.login(
+                              permissions: [
+                                'email'
+                              ], // Requesting 'email' permission
+                            );
+
+                            if (result.status == LoginStatus.success) {
+                              // User successfully logged in with Facebook
+                              final AccessToken accessToken =
+                                  result.accessToken!;
+                              // final userData = await FacebookAuth.instance.getUserData();
+                              Navigator.of(context).pushReplacement(
+                                MaterialPageRoute(
+                                  builder: (ctx) =>
+                                      ProfileScreen(accessToken: accessToken),
+                                ),
+                              );
+                              // Proceed with handling the logged in user
+                              // For example, navigate to another screen or fetch user data
+                            } else {
+                              // Handle the error or user canceled the login
+                              print('Facebook login failed: ${result.status}');
+                            }
                           },
                           icon: SizedBox(
-                            width: 24, 
-                            height: 24, 
-                            child: Image.asset(
-                                'assets/logos/facebook_icon.png'), 
+                            width: 24,
+                            height: 24,
+                            child:
+                                Image.asset('assets/logos/facebook_icon.png'),
                           ),
                           label: Text(
                             'Sign In with Facebook',

@@ -1,0 +1,14 @@
+<resources>
+	<string name="app_name">
+		cafepia
+	</string>
+	<string name="facebook_app_id">
+		3014643235353221
+	</string>
+	<string name="fb_login_protocol_scheme">
+		fb3014643235353221
+	</string>
+	<string name="facebook_client_token">
+		df4e4b9cdae8090cf8db6d37f09a3457
+	</string>
+</resources>
