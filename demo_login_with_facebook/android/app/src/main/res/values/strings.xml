@@ -1,4 +1,7 @@
 <resources>
+    <string name="app_name">
+		demo_login_with_facebook
+	</string>
 	<string name="facebook_app_id">
 		993129265821884
 	</string>

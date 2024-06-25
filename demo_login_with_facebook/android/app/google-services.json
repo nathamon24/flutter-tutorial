@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "93051923835",
+    "project_id": "demoauth-e286e",
+    "storage_bucket": "demoauth-e286e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:93051923835:android:360d56f577a55ac1d5e1de",
+        "android_client_info": {
+          "package_name": "com.example.demo_login_with_facebook"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZktluoCLHAUHDGUm2RlSFfPfk0zUFpEQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
