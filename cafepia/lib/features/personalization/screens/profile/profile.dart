@@ -4,7 +4,7 @@ import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 class ProfileScreen extends StatefulWidget {
   final AccessToken accessToken;
 
-  const ProfileScreen({super.key, required this.accessToken});
+  const ProfileScreen({Key? key, required this.accessToken}) : super(key: key);
 
   @override
   _ProfileScreenState createState() => _ProfileScreenState();

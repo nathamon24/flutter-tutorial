@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "314026888702",
+    "project_id": "facebookauthtest-93ec1",
+    "storage_bucket": "facebookauthtest-93ec1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:314026888702:android:78157fc3678ba3087f84af",
+        "android_client_info": {
+          "package_name": "com.example.cafepia"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmZ5wr0r4-NoXfuDNM7dMtkHsOXwQcagw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:314026888702:android:dc9658c7a461f1e67f84af",
+        "android_client_info": {
+          "package_name": "com.your.app.package"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmZ5wr0r4-NoXfuDNM7dMtkHsOXwQcagw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
