@@ -1,6 +1,8 @@
 import 'package:cafepia/features/authentication/providers/onboarding_provider.dart';
+import 'package:cafepia/features/authentication/providers/register_provider.dart';
 import 'package:cafepia/features/authentication/screens/login/login.dart';
 import 'package:cafepia/features/authentication/screens/onBoarding/onboarding.dart';
+import 'package:cafepia/features/personalization/provider/profile_provider.dart';
 import 'package:cafepia/main.dart';
 import 'package:flutter/material.dart';
 import 'package:cafepia/utils/constants/text_strings.dart';
@@ -14,7 +16,9 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => OnBoardingProvider())
+        ChangeNotifierProvider(create: (context) => OnBoardingProvider()),
+        ChangeNotifierProvider(create: (context) => ProfileProvider()),
+        ChangeNotifierProvider(create: (context) => RegisterProvider())
       ],
       child: MaterialApp(
         title: TTexts.appName,

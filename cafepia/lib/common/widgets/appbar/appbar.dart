@@ -23,6 +23,7 @@ class TAppBar extends StatelessWidget implements PreferredSizeWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: TSizes.md),
       child: AppBar(
+        centerTitle: true,
         automaticallyImplyLeading: false,
         leading: showBackArrow
             ? IconButton(
@@ -37,7 +38,7 @@ class TAppBar extends StatelessWidget implements PreferredSizeWidget {
                     icon: Icon(leadingIcon),
                   )
                 : null,
-        title: title,
+        title: title, // Center the title widget
         actions: actions,
       ),
     );

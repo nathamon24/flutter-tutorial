@@ -1,68 +1,50 @@
+import 'package:cafepia/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
+import 'package:provider/provider.dart';
+import 'package:cafepia/features/personalization/provider/profile_provider.dart';
 
-class ProfileScreen extends StatefulWidget {
-  final AccessToken accessToken;
-
-  const ProfileScreen({Key? key, required this.accessToken}) : super(key: key);
-
-  @override
-  _ProfileScreenState createState() => _ProfileScreenState();
-}
-
-class _ProfileScreenState extends State<ProfileScreen> {
-  Map<String, dynamic>? userData;
-
-  @override
-  void initState() {
-    super.initState();
-    fetchUserProfile();
-  }
-
-  Future<void> fetchUserProfile() async {
-    try {
-      final userData = await FacebookAuth.instance.getUserData(
-        fields: "email,name,picture",
-      );
-
-      setState(() {
-        this.userData = userData;
-      });
-    } catch (e) {
-      print('Failed to fetch user data: $e');
-    }
-  }
+class ProfileScreen extends StatelessWidget {
+  const ProfileScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final Profile? profile = Provider.of<ProfileProvider>(context).profile;
+
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Profile'),
-      ),
+      
       body: Center(
-        child: userData != null
-            ? Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  CircleAvatar(
-                    radius: 50,
-                    backgroundImage: NetworkImage(
-                      userData!['picture']['data']['url'],
-                    ),
-                  ),
-                  SizedBox(height: 20),
-                  Text(
-                    'Name: ${userData!['name']}',
-                    style: TextStyle(fontSize: 20),
-                  ),
-                  SizedBox(height: 10),
-                  Text(
-                    'Email: ${userData!['email']}',
-                    style: TextStyle(fontSize: 20),
-                  ),
-                ],
-              )
-            : CircularProgressIndicator(),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            CircleAvatar(
+              radius: 50,
+              backgroundImage: profile?.photoUrl != null
+                  ? NetworkImage(profile!.photoUrl!)
+                  : const AssetImage('assets/images/default_profile.png'),
+            ),
+            const SizedBox(height: 20),
+            Text(
+              'Name: ${profile?.name}',
+              style: const TextStyle(fontSize: 20),
+            ),
+            const SizedBox(height: 10),
+            Text(
+              'Email: ${profile?.email}',
+              style: const TextStyle(fontSize: 20),
+            ),
+            const SizedBox(height: 20),
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: () {
+                  Provider.of<ProfileProvider>(context, listen: false)
+                      .signOut(context);
+                },
+                child: const Text('Logout'),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
